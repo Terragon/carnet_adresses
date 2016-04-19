@@ -1,4 +1,4 @@
-Carnet d'adresses
+address_book
 ============
 
 Attention, il est necessaire de créer un fichier address_book/app/config/parameters.yml avec à l'interieur : 
