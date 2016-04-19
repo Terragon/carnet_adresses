@@ -1,7 +1,7 @@
-address_book
+Carnet d'adresse
 ============
 
-Attention, il est necessaire de créer un fichier address_book/app/config/parameters.yml avec à l'interieur : 
+Attention, il est necessaire de créer un fichier carnet_adresse/app/config/parameters.yml avec à l'interieur : 
 
 parameters:
     database_host: ---
