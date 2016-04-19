@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="page-header">
+            <h1>
+                Carnet d'adresses
+                <small>{{ pagination.getTotalItemCount }} contacts</small>
+                <a class="col-md-2 pull-right btn btn-primary" href="{{ path('contact_new') }}">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    Ajouter
+                </a>
+            </h1>
+        </div>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Société</th>
+                    <th>Adresse</th>
+                    <th>Téléphone</th>
+                    <th>Adresse e-mail</th>
+                    <th>Site</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for contact in pagination %}
+                <tr>
+                    <td>{{ contact.lastName }}</td>
+                    <td>{{ contact.firstName }}</td>
+                    <td>{{ contact.company }}</td>
+                    <td>{{ contact.address }}</td>
+                    <td>{{ contact.phoneNumber }}</td>
+                    <td>{{ contact.emailAddress }}</td>
+                    <td>{{ contact.website }}</td>
+                    <td>{{ contact.status }}</td>
+                    <td>
+                        <ul class="list-inline">
+                            <li>
+                                <a href="{{ path('contact_show', { 'id': contact.id }) }}">
+                                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('contact_edit', { 'id': contact.id }) }}">
+                                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
+{% endblock %}

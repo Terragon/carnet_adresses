@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_3_horizontal_layout.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="page-header">
+            <h1>
+                Carnet d'adresses
+                <a class="col-md-2 pull-right btn btn-primary" href="{{ path('contact_index') }}">
+                    <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+                    Retour à la liste
+                </a>
+            </h1>
+
+        </div>
+
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <input class="col-md-2 pull-right btn btn-success" type="submit" value="Valider" />
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
